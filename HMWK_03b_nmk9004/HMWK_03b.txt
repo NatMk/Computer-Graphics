@@ -1,0 +1,112 @@
+#----------------------------------------------------------------------
+Programming Assignment 03b
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Add line clipping to the mesh display program of PA 03a.
+
+#----------------------------------------------------------------------
+Background:
+
+  * In PA 03a, a simple program to display parallel projected meshes
+    was created.
+
+  * The new functionality is simply using the supplied Cohen
+    Sutherland line clipping routine to clip the lines of the
+    faces and (if appropriate) draw them using the adjusted points.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_03b_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_03b_abc1234'.)
+
+  4. Look in that directory.
+
+  5. AMAZING!  There are _no_ Python files that you have to change
+     the header lines in.  Instead, use your ModelData.py, main.py,
+     myWidgets.py, and myGraphics.py from PA 03a.
+
+  6. In myGraphics.py, import clipLine() from CohenSutherland.py and
+     call it in cl_world > create_graphic_objects() to decide whether
+     or not to create each line.  If it returns doDraw as True, use
+     the returned adjusted points to draw the line.
+
+  7. Try out your nifty mesh drawing and clipping program using the
+     cow-needs-clip.txt and bunny-needs-clip.txt mesh files.  You
+     should see something like what's represented in the screenshot
+     files.  (One set of screenshots shows the clipped images, the
+     other set isn't clipped.)
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_03b_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on
+Blackboard as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_03b_abc1234' (where 'abc1234' is
+YOUR NetID).  Inside that directory should be the source files
+for your solution.  All you really need to submit are the Python
+files (ModelData.py, main.py, myWidgets.py, and myGraphics.py).
+(Feel free to include the CohenSutherland.py file as well if you
+want :).
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+  2. FYI, to get all this to work, I made NO changes to the reference
+     implementations of main.py, myWidgets.py, and ModelData.py from
+     PA 03a.
+
+     The only change to myGraphics.py was to update
+     cl_world > create_graphics_object() so that it would use the
+     Cohen Sutherland clipLine() routine to check each line before
+     drawing.  If doDraw is returned as True, create the line using
+     the returned adjusted points.  If it's False, don't create the
+     line..
+
+  3. The Bunny screenshots were captured with a canvas size of
+     600 x 450.  The Cow screenshots were captured with a canvas
+     size of 830 x 500.
+
+  4. Here are some data dumps from my run of the Bunny and Cow mesh
+     data files.  The ax, ay, sx, sy values have been rounded to
+     three decimal places.  The portal values have been rounded to
+     two decimal places.
+
+     For the canvas sizes given, you should get the same values.
+
+---Load 'bunny-needs-clip.txt'
+Num vertices  : 2502
+Num faces     : 5000
+Window line   : (-3.8, -2.9, 3.8, 2.9)
+Viewport line : (0.1, 0.1, 0.9, 0.9)
+Bounding box  : (-4.0, 4.0, -3.09657, 3.09657, -3.95022, 3.95022)
+---Draw
+Canvas size   : (500, 500)
+Transform     : ax 250.000 ay 250.000 sx 52.632 sy 68.966
+Portal        : ( 50.00, 50.00, 450.00, 450.00 )
+
+---Load 'cow-needs-clip.txt'
+Num vertices  : 2904
+Num faces     : 5804
+Window line   : (-0.5, -0.3, 0.5, 0.3)
+Viewport line : (0.1, 0.1, 0.9, 0.9)
+Bounding box  : (-0.522196, 0.522196, -0.319838, 0.319838, -0.170141, 0.170141)
+---Draw
+Canvas size   : (830, 500)
+Transform     : ax 415.000 ay 250.000 sx 664.000 sy 666.667
+Portal        : ( 83.00, 50.00, 747.00, 450.00 )
+
+#----------------------------------------------------------------------

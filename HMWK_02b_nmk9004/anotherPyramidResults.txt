@@ -1,0 +1,18 @@
+anotherPyramid.txt: 5 vertices, 6 faces
+First 3 vertices:
+      (0.0, 0.0, 0.0)
+      (0.8, 0.0, 0.0)
+      (0.0, 0.8, 0.0)
+First 3 faces:
+      (3, 1, 0)
+      (2, 3, 0)
+      (1, 4, 0)
+Window line: (-1.0, -1.0, 1.0, 1.0)
+Viewport line: (0.1, 0.1, 0.9, 0.9)
+Canvas size: 500 400
+Bounding box: (0.0, 0.8, 0.0, 0.8, 0.0, 0.7)
+Transform is 250.0 200.0 200.0 160.0
+First 3 transformed vertices:
+      (250.0, 200.0, 0.0)
+      (410.0, 200.0, 0.0)
+      (250.0, 328.0, 0.0)

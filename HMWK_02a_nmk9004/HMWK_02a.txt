@@ -1,0 +1,100 @@
+#----------------------------------------------------------------------
+Programming Assignment 02a
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Demonstrate working tkinter environment.
+
+#----------------------------------------------------------------------
+Background:
+
+  * As we progress in this course, your programs will need to
+    draw on a canvas.  We use the tkinter package to do this.
+
+  * The framework included with the assignment was originally
+    written by Prof. Kamangar.  It has been heavily modified.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_02a_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_02a_abc1234'.)
+
+  4. Look in that directory.
+
+  5. Change the header lines in all of the Python files.
+     (Put your name on line 1, your NetID on line 2, and the date
+      on line 3.)
+
+  6. (Wonder why the instructor puts those same 5 instructions at
+      the beginning of every homework?  Could it be that some
+      students manage to screw it up EVERY SINGLE TIME?  Naw, no
+      student could be that dense.  It must be because the
+      instructor is a micromanaging, obsessive-compulsive, nit-
+      picking nutcase.)
+
+  7. Change the background color from yellow to something a bit more
+     appealing to your taste.  If you make the background too dark,
+     lines drawn in black won't show up, so you'll have to change
+     the line color as well.  (Don't pick 'teal'.  That's MY
+     color!)
+
+  8. Change the cl_statusBar_frame.set() function so that it puts
+     your NetID on the front of every message before it displays
+     it.
+
+  9. Run the framework, resize the canvas to 450, 450 and take a
+     screenshot.  It should look like the AfterResize.png image,
+     though with your NetID in the status bar message line.
+
+ 10. Click the 'Draw' button and take another screenshot.  It
+     should look like the AfterDraw.png image, though with your
+     NetID in the status bar message line.
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_02a_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on
+Blackboard as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_02a_abc1234' (where 'abc1234' is
+YOUR NetID).  Inside that directory should be the source files
+for your solution and the two screenshots that you took.
+
+#----------------------------------------------------------------------
+Hints:
+  1. Remember that screenshots should be PNG files, not JPEG,
+     JPG, GIF, ...  You don't want your images to look like
+     pig poop.
+
+  2. Crop your screenshots to just the single window.  I don't
+     need to see everything else on your desktop.  (Yes, I have
+     gotten full-desktop screenshots with somewhat embarassing
+     items visible.  OK, maybe 'hilarious' is a better adjective
+     here.  :)
+
+  3. To get your NetID onto the front of the status bar messages,
+     change ONLY the contents of the cl_statusBar_frame.set()
+     function (at lines 154-156 in myWidgets.py).  Don't change
+     every message to include your NetID.  (Yes, someone did that
+     in a previous class.  :)
+
+  4. Ensure that your screenshot after the canvas resize actually
+     shows the canvas resize message.  Ensure that your
+     screenshot after the draw actually shows the draw message.
+     (You'll probably understand this cautionary hint better
+     after you take a screenshot for the first time, I think.  :)
+
+  5. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+#----------------------------------------------------------------------

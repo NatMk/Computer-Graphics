@@ -1,0 +1,137 @@
+#----------------------------------------------------------------------
+Programming Assignment 04b
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Add Bézier patch processing to the mesh display program of PA 04a.
+
+#----------------------------------------------------------------------
+Background:
+
+  * In PA 04a, the simple program to display clipped, parallel
+    or perspective projected meshes was extended to do Euler rotations.
+
+  * The new functionality in PA 04b is to offer the possibility
+    of generating and displaying Bézier patches.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_04b_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_04b_abc1234'.)
+
+  4. Look in that directory.
+
+  5. AMAZING!  There are _no_ Python files that you have to change
+     the header lines in.  Instead, use your ModelData.py, main.py,
+     myWidgets.py, and myGraphics.py from PA 04a.  (Also include
+     the previously supplied CohenSutherland.py file.)  There is a
+     new file to use, BézierPatch.py, which will help you generate
+     the surface points of the patches from the control points.
+
+  6. In ModelData.py, augment the inputFile method to accept
+     patch lines.  A patch line begins with a 'p' and has 16
+     vertex numbers following.  Remember each patch in a list,
+     m_Patches.  (Patches are like Faces except a patch has 16
+     vertex numbers while Faces have only three.)
+
+     Make a getPatches method that returns the patches list, just
+     as there's a getFaces method that returns the faces list.
+
+     Make a method transformXYZ method that works like the
+     getTransformedVertex method except that it takes x, y, z
+     coordinates instead of a vertex number.
+
+  7. In myWidgets.py, add a button for Resolution, similar to
+     the View Distance case, except Resolution is an integer
+     instead of a float and has a minimum of 4.
+
+     Augment the toolbar_draw_callback method to pass the value
+     of Resolution to create_graphics_objects.
+
+  8. In myGraphics.py, augment the create_graphics_objects method
+     to accept a Resolution parameter.
+
+     After drawing the faces, that method should iterate over
+     the patches (just as it does over the faces).  For each one,
+     it should call resolve (from BézierPatch.py) passing the
+     desired resolution, control point numbers, and the list of
+     vertices from the model data.  In return, resolve will supply
+     a list of generated patch points.
+
+     Given the generated patch points, the triangles of the patch
+     can be created (using the method described in the Bézier
+     computation PDF handout) and then drawn.
+
+  9. Try out your nifty mesh drawing, clipping, parallel and
+     perspective projecting, Euler rotating, Euler rotating, and
+     Bézier patch generating program using the supplied test files.
+     You should see something like what's represented in the
+     screenshot files.
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_04b_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on
+Blackboard as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_04b_abc1234' (where 'abc1234' is
+YOUR NetID).  Inside that directory should be the source files
+for your solution.  All you really need to submit are the Python
+files (ModelData.py, main.py, myWidgets.py, and myGraphics.py).
+(Feel free to include the supplied CohenSutherland.py and
+BézierPatch.py files as well if you want :).
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+  2. In myGraphics.py, remember to import the resolve function from
+     BézierPatch.py.
+
+  3. When I made the reference solution, I make a function
+
+      def drawTriangle( canvas, v1, v2, v3, portal, doClip ) :
+        ...
+
+     where each of the v1, v2, v3 is a tuple of x, y, z
+     coordinates.  I call this routine when I want to draw a
+     face or one of the two triangles created for each "square"
+     of the generated Bézier patch.
+
+  4. The x, y, z coordinates of the surface points of the
+     resolved Bézier patches can be Euler rotated and
+     projected using the newly created transformXYZ method
+     mentioned above.  This takes the place of getTransformedVertex
+     since the Bézier surface points are _in between_ the
+     control points.
+
+  5. This is not a lot of code.  The changes to ModelData.py
+     amounted to about 15 lines of code.  In myWidgets.py, it
+     was about 15 lines of code.  For myGraphics.py, it's about
+     25 to 30 lines of code.  (Then again, you get the code in
+     BézierPatch.py for free! :)
+
+  6. The files in the Screenshots subdirectory are named this way:
+
+      <modelFile>-<width>x<height>-<resolution>-<ϕ>,<θ>,<ψ>.png
+
+     <modelFile>  -- name of the model file (mesh or patches)
+     <width>      -- canvas width in pixels
+     <height>     -- canvas height in pixels
+     <resolution> -- resolution for Bézier patches
+     <ϕ>          -- X axis rotation, in degrees
+     <θ>          -- Y axis rotation, in degrees
+     <ψ>          -- Z axis rotation, in degrees
+
+#----------------------------------------------------------------------

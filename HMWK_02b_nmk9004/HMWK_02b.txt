@@ -1,0 +1,99 @@
+#----------------------------------------------------------------------
+Programming Assignment 02b
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Enhance Model Data class.
+
+#----------------------------------------------------------------------
+Background:
+
+  * Transform construction:  Given the window and viewport parameters
+    and the canvas width and height, compute the transform coefficients
+    ax, ay and sx, sy as described in "4303 Homework 02 Transform.pdf".
+
+  * You also need to enhance the Model Data class withe three new
+    methods.
+
+  * (1) Bounding Box computation:  The bounding box for a model is
+    the smallest rectangular parallelepiped (aka 'box') that
+    encloses all vertices belonging to the model.
+
+  * (2) Specify Transform:  Provide ax, ay and sx, sy that will be used
+    to transform vertices.
+
+  * (3) Get Transformed Vertex:  Get transformed x, y, z for a given
+    vertex number.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_02b_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_02b_abc1234'.)
+
+  4. Look in that directory.
+
+  5. Change the header lines in all of the Python files.
+     (Put your name on line 1, your NetID on line 2, and the date
+      on line 3.)
+
+  6. (Yes, the instructor is still a micromanaging, obsessive-
+      compulsive, nit-picking nutcase.)
+
+  7. There are five TODO spots in ModelData.py, lines 20, 27, 35,
+     40, and 56.  Read the requirements of each TODO and write
+     the appropriate code.
+
+  8. Try your enhanments using this command line:
+
+       python3 ModelData.py anotherPyramid.txt 500 400
+
+     You should get the same results as in anotherPyramidResults.txt.
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_02b_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on
+Blackboard as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_02b_abc1234' (where 'abc1234' is
+YOUR NetID).  Inside that directory should be the source files
+for your solution.
+
+#----------------------------------------------------------------------
+Hints:
+  1. float( 'inf' ) and float( '-inf' ) are positive and
+     negative infinity in Python.
+
+  2. Don't change anything in the template file except where
+     indicated by the TODO markers.  Especially don't mess
+     around with the _main() function as that might make it
+     hard for you to get the same results.
+
+  3. Everything you need to know to compute the transform and
+     then to transform vertices is in
+
+        "4303 Homework 02 Transform.pdf"
+
+     anotherPyramid.txt is the same data as used in the PDF so
+     you can use the derivation and results shown in the PDF
+     to check your work.
+
+  4. Note that the 'same results' means matches EXACTLY.  Your
+     submission is going to be evaluated mechanically and if
+     your results don't match EXACTLY, you are going to get
+     dinged points.
+
+  5. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+#----------------------------------------------------------------------

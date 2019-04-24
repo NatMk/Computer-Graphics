@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="HW 1" />
+    <orderEntry type="module" module-name="HMWK_03a_nmk9004" />
+    <orderEntry type="module" module-name="HMWK_03a_nmk9004" />
+    <orderEntry type="module" module-name="HMWK_03a_nmk9004" />
+    <orderEntry type="module" module-name="HMWK_03b_nmk9004" />
+    <orderEntry type="module" module-name="HMWK_03b_nmk9004" />
+    <orderEntry type="module" module-name="HMWK_03c_nmk9004" />
+    <orderEntry type="module" module-name="perceptron" />
+  </component>
+</module>

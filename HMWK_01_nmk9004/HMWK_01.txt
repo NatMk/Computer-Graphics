@@ -1,0 +1,136 @@
+#----------------------------------------------------------------------
+Programming Assignment 01
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Establish a working Python3 programming environment.
+
+  * Get some practice writing (relatively) simple Python code
+
+  * Create a Python3 class for reading and holding model data.
+
+#----------------------------------------------------------------------
+Background:
+
+  * As we progress in this course, your programs will need to read
+    model data from text files and construct data objects to hold
+    that data.
+
+  * A model file is a text file.  Each line in the model file will
+    either be blank (or consist entirely of whitespace characters)
+    or will start with one of the following characters:
+
+    # -- indicates a comment line.
+
+    v -- indicates a vertex line.
+           The rest of the line will be 3 floats.
+
+    f -- indicates a face line.
+           The rest of the line will be 3 ints.
+
+    w -- indicates a 'window' line.
+           The rest of the line will be 4 floats.
+
+    s -- indicates a 'viewport' line.
+           The rest of the line will be 4 floats.
+           (We can't use 'v' for this as 'v' means vertex.  Think of
+            the 's' as meaning 'screen viewport'.)
+
+  * As the lines are read, blank lines and comment lines are to
+    be ignored.
+
+  * The data on the v, f, w, and s lines must be saved.  There are
+    details as to how the data has to be saved in the ModelData.py
+    template file comments.
+
+  * There may be any number (in fact, possibly thousands) of v and
+    f lines, but at most only one w line and at most only one s line.
+
+  * Any deviation from this specification should be reported as an
+    error when the file is read, but continue reading so subsequent
+    errors will be reported as well.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_01_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like 'hmwk_01_abc1234'.)
+
+  4. Look in that directory.
+
+  5. Change the header lines in the ModelData.py file.
+     (Put your name on line 1, your NetID on line 2, and the date on
+      line 3.)
+
+  6. Replace lines 19-55 in the ModelData.py file with your code to
+     do the processing as described above and in the comments in the
+     ModelData.py file.
+
+  7. Try your program out on the supplied pyramid-centered.txt model
+     file.  You should get the same answers as shown on my run.
+     (Look in the Screenshots directory to see the snapshot of my
+      answer running.)
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_01_abc1234' directory (with your source
+file in it) and submit it on Blackboard as your results for this
+assignment.
+
+Your submission will be run against some other model data files that
+I have and will score points for properly processing blank, #, f, v,
+w, and s lines as well as for detecting and reporting format errors.
+
+The maximum possible score for this homework assignment 10 points.
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure your programs compile and run correctly.  Not compiling or
+     not generating the correct output will cost you points.  Compare
+     your output to that shown in the screenshot.  If you get that
+     correct, you should be OK.
+
+  2. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+  3. Here's the first few lines of my version of loadFile(). By doing
+     the read this way, replacing '\r' characters, and splitting on
+     '\n' characters, lines will be a list of the lines from the
+     input file.  The for loop uses enumerate so that there's an
+     indication (index) of which line is being processed.  That's
+     useful when printing error messages.
+
+    with open( inputFile, 'r' ) as fp :
+      lines = fp.read().replace('\r', '' ).split( '\n' )
+
+    for ( index, line ) in enumerate( lines, start = 1 ) :
+      line = line.strip()
+
+      # Your line-by-line processing goes here ...
+
+  4. You can convert a string to an int in Python thusly:
+
+    try :
+      intVar = int( stringVar )
+
+    except :
+      # put something here that complains that stringVar is not
+      # a legal int.
+
+  5. You can convert a string to a float in Python thusly:
+
+    try :
+      floatVar = float( stringVar )
+
+    except :
+      # put something here that complains that stringVar is not
+      # a legal float.
+
+#----------------------------------------------------------------------

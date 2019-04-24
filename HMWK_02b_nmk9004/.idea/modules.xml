@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/HMWK_02b_nmk9004.iml" filepath="$PROJECT_DIR$/.idea/HMWK_02b_nmk9004.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../HMWK_03b_nmk9004/.idea/HMWK_03a_nmk9004.iml" filepath="$PROJECT_DIR$/../../HMWK_03b_nmk9004/.idea/HMWK_03a_nmk9004.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../HMWK_03b_nmk9004/.idea/HMWK_03b_nmk9004.iml" filepath="$PROJECT_DIR$/../../HMWK_03b_nmk9004/.idea/HMWK_03b_nmk9004.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../HMWK_03c_nmk9004/.idea/HMWK_03c_nmk9004.iml" filepath="$PROJECT_DIR$/../../HMWK_03c_nmk9004/.idea/HMWK_03c_nmk9004.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Assignment 1/.idea/HW 1.iml" filepath="$PROJECT_DIR$/../../Assignment 1/.idea/HW 1.iml" />
+      <module fileurl="file://$USER_HOME$/perceptron/.idea/perceptron.iml" filepath="$USER_HOME$/perceptron/.idea/perceptron.iml" />
+    </modules>
+  </component>
+</project>

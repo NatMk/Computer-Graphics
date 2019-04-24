@@ -1,0 +1,119 @@
+#----------------------------------------------------------------------
+Programming Assignment 03c
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Add perspective projection to the mesh display program of PA 03b.
+
+#----------------------------------------------------------------------
+Background:
+
+  * In PA 03b, the simple program to display parallel projected meshes
+    was extended to clip lines that fell outside of the display region.
+
+  * The new functionality in PA 03c is to offer the alternative of
+    perspective projection (with a user-settable view distance).  The
+    projection should be switchable between parallel and perspective.
+    The view distance should be settable.
+
+  * Also, if your PA 03b did not have a mechanism to turn clipping
+    on and off, add a way to switch it now.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_03c_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_03c_abc1234'.)
+
+  4. Look in that directory.
+
+  5. AMAZING!  There are _no_ Python files that you have to change
+     the header lines in.  Instead, use your ModelData.py, main.py,
+     myWidgets.py, and myGraphics.py from PA 03b.  (Also include the
+     previously supplied CohenSutherland.py file.)
+
+  6. Change the 'Settings' menu to have checkbuttons for Clipping and
+     Perspective.
+  
+  7. Add a Perspective button in the cl_toolbar > __init__ method.
+     In the callback for this button, use simpledialog.askfloat()
+     to get the view distance.  Don't let the distance be set to
+     anything lower than 1.0.
+
+  8. Augment the ModelData > specifyTransform method to accept the
+     perspective distance.  Ensure that you pass this distance when
+     specifying the transform in toolbar_draw_callback.
+
+  9. Augment your create_graphics_objects routine to accept two
+     extra parameters, doClip and doPerspective.  Ensure that you
+     pass these boolean values when calling this routine from
+     toolbar_draw_callback.
+
+ 10. Augment the ModelData > getTransformedVertex method to accept
+     an extra parameter, doPerspective.  If doPerspective is True,
+     that routine should modify the x and y coordinates according
+     to the info given in the Projections PDF handout.  (It's in
+     the 'Getting the Screen Coordinates' section.)
+
+ 11. Try out your nifty mesh drawing, clipping, and perspective
+     program using the Pillars-Nine.txt mesh file.  You should see
+     something like what's represented in the screenshot files
+     with the given view distances.
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_03c_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on
+Blackboard as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_03c_abc1234' (where 'abc1234' is
+YOUR NetID).  Inside that directory should be the source files
+for your solution.  All you really need to submit are the Python
+files (ModelData.py, main.py, myWidgets.py, and myGraphics.py).
+(Feel free to include the supplied CohenSutherland.py file as well
+if you want :).
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+  2. Be careful when doing perspective transformations on the x and
+     y coordinates of a point.  If the point's z coordinate is greater
+     than or equal to the view distance, just set the transformed
+     x and y both to 0.0.  This will avoid wacked out views.
+
+  3. For a checkbutton, you'll have to create a corresponding
+     tk.BooleanVar() in the cl_widget > __init__ method.  Set up the
+     checkbutton itself in the cl_menu > __init__ method.  using the
+     add_checkbutton routine with the 'label' and 'variable' parameters.
+
+  4. Get the boolean value of a tk.BooleanVar with:
+
+        booleanvar.get() == 1
+
+     where 'booleanvar' is (duh) your tk.BooleanVar.  (tkinter for
+     some reason returns 0 and 1 instead of False and True so this
+     comparison is required to get a boolean value instead of an int.)
+
+  5. Use the 'initialvalue' parameter to simpledialog.askfloat to
+     pass in the (duh) initial value.  That value will show up in the
+     dialog box when it appears.  Use the 'minvalue' parameter to
+     specify a (duh) minimal value.  The positional parameters to
+     this rouine are (1) The dialog box header line and (2) the prompt
+     in the dialog box.  (Both of these are strings.)  The named
+     parameters come after the positional ones.
+
+     simpledialog.askfloat returns None if the Cancel button is
+     clicked.
+
+#----------------------------------------------------------------------

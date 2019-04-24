@@ -1,0 +1,182 @@
+#----------------------------------------------------------------------
+Programming Assignment 04a
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Add Euler rotation to the mesh display program of PA 03c.
+
+#----------------------------------------------------------------------
+Background:
+
+  * In PA 03c, the simple program to display clipped, parallel
+    projected meshes was extended to do pespective projection.
+
+  * The new functionality in PA 04a is to offer the alternative of
+    Euler rotation of the model (with a user-settable ϕ, θ, and ψ
+    angles in degrees).  The display should be switchable between
+    having the rotation applied or not.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_04a_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_04a_abc1234'.)
+
+  4. Look in that directory.
+
+  5. AMAZING!  There are _no_ Python files that you have to change
+     the header lines in.  Instead, use your ModelData.py, main.py,
+     myWidgets.py, and myGraphics.py from PA 03c.  (Also include the
+     previously supplied CohenSutherland.py file.)
+
+  5. In ModelData.py, add a getCenter method that returns the model's
+     center computed from its bounding box.
+
+     Add a specifyEulerAngles method that takes the ϕ, θ, and ψ
+     angles (in degrees) and computes and saves r00 through r22.
+     It also should compute and save ex, ey, ez using r00 through
+     r22 and tx, ty, tz (the object's center).
+
+     Augment the getTransformedVertex method to accept another
+     parameter doEuler, a boolean.  If this parameter is True,
+     Euler rotate the x, y, z coordinates using the previously
+     saved r00 through r22 and ex, ey, ez.
+
+  6. In myWidgets.py, add the Settings > Euler rotate checkbutton
+     similar to Clipping and Perspective cases.  Default is off.
+
+     Add buttons for ϕ, θ, and ψ, similar to the View Distance case.
+     Default for ϕ, θ, ψ is 0.0.
+
+     Augment the toolbar_draw_callback method to specify the Euler
+     angles to the model and pass the boolean state of the Euler
+     rotate checkbutton to create_graphics_objects.
+
+  7. In myGraphics.py, augment the create_graphics_objects method
+     to accept a doEuler parameter and pass it to the
+     getTransformedVertex method when retrieving vertex
+     coordinates.
+
+  8. Try out your nifty mesh drawing, clipping, perspective, and
+     Euler rotating program using the supplied mesh files.  You
+     should see something like what's represented in the screenshot
+     files.
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_04a_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on
+Blackboard as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_04a_abc1234' (where 'abc1234' is
+YOUR NetID).  Inside that directory should be the source files
+for your solution.  All you really need to submit are the Python
+files (ModelData.py, main.py, myWidgets.py, and myGraphics.py).
+(Feel free to include the supplied CohenSutherland.py file as well
+if you want :).
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+  2. Don't forget to convert the ϕ, θ, and ψ angles from degrees to
+     radians before computing the r00 through r22 values.  As a check,
+     here's the diagnostic output from the reference version for
+     the monkey mesh file displayed with a canvas size of 500x500 and
+     Euler rotated to ϕ 20, θ 45, ψ -30 degrees:
+
+---Load 'monkey.txt'
+Num vertices  : 507
+Num faces     : 967
+Window line   : (-1.640625, -1.18125, 1.640625, 1.18125)
+Viewport line : (0.1, 0.1, 0.9, 0.9)
+Bounding box  : (-1.367188, 1.367188, -0.984375, 0.984375, -0.851562, 0.851562)
+Center        : (0.0, 0.0, 0.0)
+
+---Draw
+doClip        : True
+doPerspective : False
+doEuler       : True
+View distance : 1.0
+Euler angles  : ( 20.000, 45.000, -30.000 )
+Canvas size   : (500, 500)
+Transform     : ax 250.000 ay 250.000 sx 121.905 sy 169.312
+Portal        : ( 50.00, 50.00, 450.00, 450.00 )
+
+---Euler Rotate
+r00    0.612   r01    0.354   r02    0.707
+r10   -0.260   r11    0.935   r12   -0.242
+r20   -0.746   r21   -0.036   r22    0.664
+ex     0.000   ey     0.000   ez     0.000
+
+     The r00 through r22 value are displayed to three decimal
+     places. The ex, ey, ez values are all zero because the
+     center of the monkey model is already at the origin.
+
+  3. Next we have the teapot displayed on a canvas of 560x400
+     pixels, first Euler rotated to ϕ 90, θ 0, ψ 0 degrees.
+
+---Load 'teapot.txt'
+Num vertices  : 1536
+Num faces     : 1176
+Window line   : (-3.64338, -2.4, 4.07718, 2.4)
+Viewport line : (0.1, 0.1, 0.9, 0.9)
+Bounding box  : (-3.0, 3.4338, -2.0, 2.0, 0.0, 2.4964)
+Center        : (0.2169000000000001, 0.0, 1.2482)
+
+---Draw
+doClip        : True
+doPerspective : False
+doEuler       : True
+View distance : 1.0
+Euler angles  : ( 90.000, 0.000, 0.000 )
+Canvas size   : (560, 400)
+Transform     : ax 267.414 ay 200.000 sx 58.027 sy 66.667
+Portal        : ( 56.00, 40.00, 504.00, 360.00 )
+
+---Euler Rotate
+r00    1.000   r01   -0.000   r02    0.000
+r10    0.000   r11    0.000   r12   -1.000
+r20    0.000   r21    1.000   r22    0.000
+ex     0.000   ey     1.248   ez     1.248
+
+     We then Euler rotated the teapot to ϕ 90, θ 20, ψ 45
+     degrees and redrew it.
+
+---Draw
+doClip        : True
+doPerspective : False
+doEuler       : True
+View distance : 1.0
+Euler angles  : ( 90.000, 20.000, 45.000 )
+Canvas size   : (560, 400)
+Transform     : ax 267.414 ay 200.000 sx 58.027 sy 66.667
+Portal        : ( 56.00, 40.00, 504.00, 360.00 )
+
+---Euler Rotate
+r00    0.664   r01   -0.664   r02    0.342
+r10    0.242   r11   -0.242   r12   -0.940
+r20    0.707   r21    0.707   r22    0.000
+ex    -0.354   ey     1.120   ez     1.095
+
+     The r00 through r22 value are displayed to three decimal
+     places.  In both of the teapot displays, however, the ex,
+     ey, ez values are not all zero because the center of the
+     teapot model is not at the origin.
+
+  4. This is not a lot of code.  The changes to ModelData.py
+     amounted to about 35 lines of code.  In myWidgets.py, it
+     was about 25 lines of code.  For myGraphics.py, no new
+     lines had to be added, just about four lines slightly edited.
+
+#----------------------------------------------------------------------
